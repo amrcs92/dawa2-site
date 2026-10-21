@@ -389,7 +389,7 @@ def index(lang):
           document.getElementById('whats-new').hidden = false;
         }}
         const apk = (rel.assets || []).find((a) => a.name === 'dawa2.apk');
-        if (apk) document.getElementById('rel-size').textContent = Math.round(apk.size / 1048576) + ' MB';
+        if (apk) document.getElementById('rel-size').textContent = Math.round(apk.size / 1e6) + ' MB';
         const m = /SHA-256[^:]*:\\s*`?([a-f0-9]{{64}})/i.exec(rel.body || '');
         if (m) {{
           document.getElementById('rel-sha').textContent = m[1];
