@@ -70,6 +70,9 @@ T = {
         "light": "Light",
         "dark": "Dark",
         "shots": [("today", "Today"), ("alarm", "Alarm"), ("alarm-multi", "Several at once"), ("medicines", "Medicines"), ("add", "Add medicine"), ("insights", "Insights"), ("settings", "Settings")],
+        "onboarding_h": "A guided first launch",
+        "onboarding_p": "Dawa2 shows how the alarm works and what stays private, then turns on each permission in one tap. If something stays off, it says so, and you can still continue.",
+        "onboarding": [("onboarding-1-welcome", "Welcome"), ("onboarding-2-alarm", "The alarm"), ("onboarding-3-together", "Together + history"), ("onboarding-4-privacy", "Privacy"), ("onboarding-5-permissions", "Permissions"), ("onboarding-6-ready", "Ready")],
         "install_h": "Install in a minute",
         "install_p": "Dawa2 isn't on Google Play. Download the APK and install it directly.",
         "card_h": "Dawa2 for Android",
@@ -80,7 +83,7 @@ T = {
         "steps": [
             ("Download the APK", "Tap Download on your Android phone. The file is called dawa2.apk."),
             ("Allow the install", "Open the file. If Android asks, allow installing apps from your browser or file manager."),
-            ("Open Dawa2", "The welcome screen walks you through what alarms need: notifications, exact alarms and the alarm over the lock screen. “Alarm over other apps” and “Battery unrestricted” are optional but recommended."),
+            ("Open Dawa2", "A short first-launch guide shows how the alarm works, then turns on what alarms need, one tap each: notifications, exact alarms and the alarm over the lock screen. “Battery: unrestricted” and “Alarm over other apps” are optional but recommended."),
         ],
         "note": "Google Play Protect may warn about an unrecognized app. That's expected, because Dawa2 isn't on Google Play. Tap “More details” › “Install anyway”. New versions install over the old one and keep your data.",
         "privacy_h": "Private by design",
@@ -98,7 +101,7 @@ T = {
             ("Does it need the internet?", "No. Dawa2 works fully offline and its own code makes no network requests."),
             ("How do I move to a new phone?", "Use Settings › Back up everything and keep the file somewhere safe, then restore it on the new phone. Android's automatic backup is off, so uninstalling the app deletes your data."),
             ("Does Dawa2 give medical advice?", "No. It records exactly what you enter and never suggests or changes doses."),
-            ("Which phones are supported?", "Android 7.0 or later on a 64-bit (arm64) phone, which covers almost every phone from recent years. Some brands hold apps back in the background; turning on “Battery unrestricted” keeps alarms on time."),
+            ("Which phones are supported?", "Android 7.0 or later on a 64-bit (arm64) phone, which covers almost every phone from recent years. Some brands hold apps back in the background; turning on “Battery: unrestricted” keeps alarms on time."),
             ("Why does an alarm show only as a banner?", "While you use your phone, Android shows alarms as a banner unless the app may display over other apps. Allow “Alarm over other apps” in Settings › Alarm readiness, and alarms take the whole screen."),
         ],
         "privacy": "Privacy policy",
@@ -143,6 +146,9 @@ T = {
         "light": "فاتح",
         "dark": "داكن",
         "shots": [("today", "اليوم"), ("alarm", "المنبّه"), ("alarm-multi", "عدة أدوية معاً"), ("medicines", "الأدوية"), ("add", "إضافة دواء"), ("insights", "الإحصاءات"), ("settings", "الإعدادات")],
+        "onboarding_h": "أول تشغيل بخطوات واضحة",
+        "onboarding_p": "يوضح «دواء» كيف يعمل المنبّه وما يبقى خاصًا، ثم يفعّل كل إذن بلمسة واحدة. وإن بقي شيء متوقفًا يخبرك بذلك، ويمكنك المتابعة رغم ذلك.",
+        "onboarding": [("onboarding-1-welcome", "الترحيب"), ("onboarding-2-alarm", "المنبّه"), ("onboarding-3-together", "معًا والسجل"), ("onboarding-4-privacy", "الخصوصية"), ("onboarding-5-permissions", "الأذونات"), ("onboarding-6-ready", "جاهز")],
         "install_h": "ثبّته في دقيقة",
         "install_p": "«دواء» غير متاح على Google Play. نزّل ملف APK وثبّته مباشرة.",
         "card_h": "دواء لأندرويد",
@@ -153,7 +159,7 @@ T = {
         "steps": [
             ("نزّل ملف APK", "اضغط «تنزيل» على هاتفك الأندرويد. اسم الملف dawa2.apk."),
             ("اسمح بالتثبيت", "افتح الملف. إذا طلب أندرويد ذلك، اسمح بتثبيت التطبيقات من المتصفح أو مدير الملفات."),
-            ("افتح «دواء»", "ترشدك شاشة الترحيب إلى ما تحتاجه المنبّهات: الإشعارات والمنبّهات الدقيقة والمنبّه فوق شاشة القفل. أما «المنبّه فوق التطبيقات الأخرى» و«البطارية دون قيود» فاختياريان لكنهما مستحسنان."),
+            ("افتح «دواء»", "يوضح دليل أول تشغيل القصير كيف يعمل المنبّه، ثم يفعّل ما تحتاجه المنبّهات بلمسة لكل منها: الإشعارات والمنبّهات الدقيقة والمنبّه فوق شاشة القفل. أما «البطارية: بلا قيود» و«المنبّه فوق التطبيقات الأخرى» فاختياريان لكنهما مستحسنان."),
         ],
         "note": "قد يحذّرك Google Play Protect من تطبيق غير معروف، وهذا متوقّع لأن «دواء» غير متاح على Google Play. اضغط «مزيد من التفاصيل» ثم «التثبيت على أي حال». الإصدارات الجديدة تُثبَّت فوق القديمة وتحتفظ ببياناتك.",
         "privacy_h": "الخصوصية من الأساس",
@@ -171,7 +177,7 @@ T = {
             ("هل يحتاج إلى الإنترنت؟", "لا. يعمل «دواء» دون إنترنت بالكامل، ولا يرسل التطبيق نفسه أي طلبات عبر الشبكة."),
             ("كيف أنتقل إلى هاتف جديد؟", "من الإعدادات › «نسخ احتياطي لكل شيء» احفظ الملف في مكان آمن، ثم استعده على الهاتف الجديد. النسخ الاحتياطي التلقائي في أندرويد معطّل، لذا فحذف التطبيق يحذف بياناتك."),
             ("هل يقدّم «دواء» نصائح طبية؟", "لا. يسجّل ما تُدخله كما هو، ولا يقترح الجرعات ولا يغيّرها أبداً."),
-            ("ما الهواتف المدعومة؟", "أندرويد 7.0 أو أحدث على هاتف 64-بت (arm64)، وهذا يشمل معظم هواتف السنوات الأخيرة. بعض الشركات تقيّد التطبيقات في الخلفية؛ وتفعيل «البطارية دون قيود» يُبقي المنبّهات في موعدها."),
+            ("ما الهواتف المدعومة؟", "أندرويد 7.0 أو أحدث على هاتف 64-بت (arm64)، وهذا يشمل معظم هواتف السنوات الأخيرة. بعض الشركات تقيّد التطبيقات في الخلفية؛ وتفعيل «البطارية: بلا قيود» يُبقي المنبّهات في موعدها."),
             ("لماذا يظهر المنبّه كإشعار فقط؟", "أثناء استخدامك للهاتف، يعرض أندرويد المنبّهات كإشعار ما لم يُسمح للتطبيق بالظهور فوق التطبيقات الأخرى. فعّل «المنبّه فوق التطبيقات الأخرى» من الإعدادات › جاهزية المنبّه، ليظهر المنبّه بملء الشاشة."),
         ],
         "privacy": "سياسة الخصوصية",
@@ -260,11 +266,11 @@ def index(lang):
     t = T[lang]
     prefix = "../" if lang == "ar" else ""
     other = "../" if lang == "ar" else "ar/"
-    shots = lambda theme: "".join(
+    shots = lambda theme, items=t["shots"]: "".join(
         f'<figure><div class="phone"><img loading="lazy" src="{prefix}assets/shots/{lang}-{theme}-{k}.png" '
         f'data-light="{prefix}assets/shots/{lang}-light-{k}.png" data-dark="{prefix}assets/shots/{lang}-dark-{k}.png" '
         f'alt="{name}" width="540" height="1125"></div><figcaption>{name}</figcaption></figure>'
-        for k, name in t["shots"]
+        for k, name in items
     )
     features = "".join(
         f'<div class="feature"><div class="icon">{icon(i)}</div><h3>{h}</h3><p>{p}</p></div>' for i, h, p in t["features"]
@@ -312,6 +318,13 @@ def index(lang):
           <button type="button" data-theme="dark" aria-pressed="false">{t['dark']}</button>
         </div></div>
         <div class="gallery">{shots('light')}</div>
+      </div>
+    </section>
+
+    <section class="block" id="first-launch">
+      <div class="container">
+        <div class="section-head"><h2>{t['onboarding_h']}</h2><p>{t['onboarding_p']}</p></div>
+        <div class="gallery">{shots('light', t['onboarding'])}</div>
       </div>
     </section>
 
