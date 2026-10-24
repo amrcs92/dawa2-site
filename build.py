@@ -386,6 +386,37 @@ def index(lang):
     document.querySelectorAll('.seg button').forEach((b) => b.addEventListener('click', () => showShots(b.dataset.theme)));
     if (isDark()) showShots('dark');
     document.addEventListener('themechange', (e) => showShots(e.detail));
+    // Gentle motion: sections rise into view and the hero phones lean toward the pointer. Off for reduced motion.
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {{
+      if ('IntersectionObserver' in window) {{
+        const io = new IntersectionObserver(
+          (entries) => entries.forEach((e) => {{
+            if (!e.isIntersecting) return;
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }}),
+          {{ rootMargin: '0px 0px -8% 0px' }}
+        );
+        document.querySelectorAll('.section-head, .feature, .gallery, .download-card, .steps li, .note, .privacy-band, .faq details').forEach((el) => {{
+          el.style.setProperty('--d', ([...el.parentElement.children].indexOf(el) % 3) * 0.1 + 's');
+          el.classList.add('reveal');
+          io.observe(el);
+        }});
+      }}
+      const hero = document.querySelector('.hero');
+      const phones = document.querySelector('.phones');
+      if (matchMedia('(hover: hover) and (pointer: fine)').matches) {{
+        hero.addEventListener('pointermove', (e) => {{
+          const r = hero.getBoundingClientRect();
+          phones.style.setProperty('--mx', (((e.clientX - r.left) / r.width) * 2 - 1).toFixed(3));
+          phones.style.setProperty('--my', (((e.clientY - r.top) / r.height) * 2 - 1).toFixed(3));
+        }});
+        hero.addEventListener('pointerleave', () => {{
+          phones.style.setProperty('--mx', 0);
+          phones.style.setProperty('--my', 0);
+        }});
+      }}
+    }}
     // Latest release facts (version, size, checksum) from GitHub; the page works without them.
     // Dawa2 shows Western digits in Arabic too, so doses and versions match the label.
     fetch('https://api.github.com/repos/{REPO}/releases/latest')
