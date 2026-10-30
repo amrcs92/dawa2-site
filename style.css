@@ -423,3 +423,13 @@ footer small { color: var(--ink3); width: 100%; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }
 }
+
+/* Light/dark switches (see the footer script): the page fades smoothly; on a theme switch the
+   sun/moon turns into the other icon. */
+::view-transition-old(root),
+::view-transition-new(root) { animation-duration: 0.45s; animation-timing-function: ease; }
+.vt-theme .theme-toggle { view-transition-name: theme-toggle; }
+.vt-theme::view-transition-old(theme-toggle) { animation: theme-icon-out 0.45s ease both; }
+.vt-theme::view-transition-new(theme-toggle) { animation: theme-icon-in 0.45s ease both; }
+@keyframes theme-icon-out { to { opacity: 0; transform: rotate(90deg) scale(0.4); } }
+@keyframes theme-icon-in { from { opacity: 0; transform: rotate(-90deg) scale(0.4); } }

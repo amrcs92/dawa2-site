@@ -252,12 +252,38 @@ def footer(t, lang, prefix, home, privacy):
       document.documentElement.dataset.theme
         ? document.documentElement.dataset.theme === 'dark'
         : matchMedia('(prefers-color-scheme: dark)').matches;
-    document.querySelector('.theme-toggle').addEventListener('click', () => {{
-      const next = isDark() ? 'light' : 'dark';
-      document.documentElement.dataset.theme = next;
-      try {{ localStorage.setItem('theme', next); }} catch (e) {{}}
-      document.dispatchEvent(new CustomEvent('themechange', {{ detail: next }}));
-    }});
+    // Animated switches (View Transitions): the page fades smoothly to the other theme while the
+    // sun/moon icon turns into the other one; screenshot toggles fade the same way. Instant without
+    // the API or with reduced motion.
+    const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // Resolves once the screenshots in view have their new image (or after 400 ms), so the
+    // transition never captures a half-loaded picture.
+    const shotsReady = (scope = document) => {{
+      const inView = [...scope.querySelectorAll('.gallery img')].filter((i) => {{
+        const r = i.getBoundingClientRect();
+        return r.bottom > 0 && r.top < innerHeight;
+      }});
+      return Promise.race([
+        Promise.all(inView.map((i) => i.decode().catch(() => {{}}))),
+        new Promise((r) => setTimeout(r, 400)),
+      ]);
+    }};
+    const transition = (change, themeSwitch = false) => {{
+      if (!document.startViewTransition || calm) {{ change(); return; }}
+      const html = document.documentElement;
+      if (themeSwitch) html.classList.add('vt-theme'); // gives the sun/moon its own animation
+      document.startViewTransition(change).finished.finally(() => html.classList.remove('vt-theme'));
+    }};
+    const toggle = document.querySelector('.theme-toggle');
+    toggle.addEventListener('click', () =>
+      transition(() => {{
+        const next = isDark() ? 'light' : 'dark';
+        document.documentElement.dataset.theme = next;
+        try {{ localStorage.setItem('theme', next); }} catch (e) {{}}
+        document.dispatchEvent(new CustomEvent('themechange', {{ detail: next }}));
+        return shotsReady();
+      }}, true),
+    );
   </script>
 """
 
@@ -389,7 +415,14 @@ def index(lang):
       scope.querySelectorAll('.gallery img').forEach((img) => (img.src = img.dataset[theme]));
     }};
     document.querySelectorAll('.seg button').forEach((b) =>
-      b.addEventListener('click', () => showShots(b.dataset.theme, b.closest('section'))),
+      b.addEventListener('click', () => {{
+        const section = b.closest('section');
+        if (b.getAttribute('aria-pressed') === 'true') return;
+        transition(() => {{
+          showShots(b.dataset.theme, section);
+          return shotsReady(section);
+        }});
+      }}),
     );
     if (isDark()) showShots('dark');
     document.addEventListener('themechange', (e) => showShots(e.detail));
