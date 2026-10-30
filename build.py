@@ -275,6 +275,12 @@ def index(lang):
     features = "".join(
         f'<div class="feature"><div class="icon">{icon(i)}</div><h3>{h}</h3><p>{p}</p></div>' for i, h, p in t["features"]
     )
+    theme_bar = (
+        '<div class="gallery-bar"><div class="seg" role="group">'
+        f'<button type="button" data-theme="light" aria-pressed="true">{t["light"]}</button>'
+        f'<button type="button" data-theme="dark" aria-pressed="false">{t["dark"]}</button>'
+        '</div></div>'
+    )
     trust = "".join(f"<li>{icon('check')}{x}</li>" for x in t["trust"])
     steps = "".join(f"<li><h4>{h}</h4><p>{p}</p></li>" for h, p in t["steps"])
     checks = "".join(f"<li>{icon('check')}<span>{x}</span></li>" for x in t["checks"])
@@ -313,10 +319,7 @@ def index(lang):
     <section class="block" id="screenshots" style="background: var(--bg2)">
       <div class="container">
         <div class="section-head"><h2>{t['gallery_h']}</h2><p>{t['gallery_p']}</p></div>
-        <div class="gallery-bar"><div class="seg" role="group">
-          <button type="button" data-theme="light" aria-pressed="true">{t['light']}</button>
-          <button type="button" data-theme="dark" aria-pressed="false">{t['dark']}</button>
-        </div></div>
+        {theme_bar}
         <div class="gallery">{shots('light')}</div>
       </div>
     </section>
@@ -324,6 +327,7 @@ def index(lang):
     <section class="block" id="first-launch">
       <div class="container">
         <div class="section-head"><h2>{t['onboarding_h']}</h2><p>{t['onboarding_p']}</p></div>
+        {theme_bar}
         <div class="gallery">{shots('light', t['onboarding'])}</div>
       </div>
     </section>
@@ -378,12 +382,15 @@ def index(lang):
   </main>
 """ + footer(t, lang, prefix, "./", "privacy.html") + f"""
   <script>
-    // Screenshot theme switch; it follows the page theme and can be changed on its own.
-    const showShots = (theme) => {{
-      document.querySelectorAll('.seg button').forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.theme === theme)));
-      document.querySelectorAll('.gallery img').forEach((img) => (img.src = img.dataset[theme]));
+    // Screenshot theme switches (A closer look, A guided first launch): each changes its own section;
+    // all of them follow the page theme.
+    const showShots = (theme, scope = document) => {{
+      scope.querySelectorAll('.seg button').forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.theme === theme)));
+      scope.querySelectorAll('.gallery img').forEach((img) => (img.src = img.dataset[theme]));
     }};
-    document.querySelectorAll('.seg button').forEach((b) => b.addEventListener('click', () => showShots(b.dataset.theme)));
+    document.querySelectorAll('.seg button').forEach((b) =>
+      b.addEventListener('click', () => showShots(b.dataset.theme, b.closest('section'))),
+    );
     if (isDark()) showShots('dark');
     document.addEventListener('themechange', (e) => showShots(e.detail));
     // Gentle motion: sections rise into view and the hero phones lean toward the pointer. Off for reduced motion.

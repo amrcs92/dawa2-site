@@ -60,10 +60,7 @@
     <section class="block" id="screenshots" style="background: var(--bg2)">
       <div class="container">
         <div class="section-head"><h2>A closer look</h2><p>Ten screens from a real phone, in light and dark.</p></div>
-        <div class="gallery-bar"><div class="seg" role="group">
-          <button type="button" data-theme="light" aria-pressed="true">Light</button>
-          <button type="button" data-theme="dark" aria-pressed="false">Dark</button>
-        </div></div>
+        <div class="gallery-bar"><div class="seg" role="group"><button type="button" data-theme="light" aria-pressed="true">Light</button><button type="button" data-theme="dark" aria-pressed="false">Dark</button></div></div>
         <div class="gallery"><figure><div class="phone"><img loading="lazy" src="assets/shots/en-light-today.png" data-light="assets/shots/en-light-today.png" data-dark="assets/shots/en-dark-today.png" alt="Today" width="540" height="1125"></div><figcaption>Today</figcaption></figure><figure><div class="phone"><img loading="lazy" src="assets/shots/en-light-alarm.png" data-light="assets/shots/en-light-alarm.png" data-dark="assets/shots/en-dark-alarm.png" alt="Alarm" width="540" height="1125"></div><figcaption>Alarm</figcaption></figure><figure><div class="phone"><img loading="lazy" src="assets/shots/en-light-alarm-multi.png" data-light="assets/shots/en-light-alarm-multi.png" data-dark="assets/shots/en-dark-alarm-multi.png" alt="Several at once" width="540" height="1125"></div><figcaption>Several at once</figcaption></figure><figure><div class="phone"><img loading="lazy" src="assets/shots/en-light-medicines.png" data-light="assets/shots/en-light-medicines.png" data-dark="assets/shots/en-dark-medicines.png" alt="Medicines" width="540" height="1125"></div><figcaption>Medicines</figcaption></figure><figure><div class="phone"><img loading="lazy" src="assets/shots/en-light-add.png" data-light="assets/shots/en-light-add.png" data-dark="assets/shots/en-dark-add.png" alt="Add medicine" width="540" height="1125"></div><figcaption>Add medicine</figcaption></figure><figure><div class="phone"><img loading="lazy" src="assets/shots/en-light-insights.png" data-light="assets/shots/en-light-insights.png" data-dark="assets/shots/en-dark-insights.png" alt="Insights" width="540" height="1125"></div><figcaption>Insights</figcaption></figure><figure><div class="phone"><img loading="lazy" src="assets/shots/en-light-settings.png" data-light="assets/shots/en-light-settings.png" data-dark="assets/shots/en-dark-settings.png" alt="Settings" width="540" height="1125"></div><figcaption>Settings</figcaption></figure><figure><div class="phone"><img loading="lazy" src="assets/shots/en-light-settings-speak.png" data-light="assets/shots/en-light-settings-speak.png" data-dark="assets/shots/en-dark-settings-speak.png" alt="Speak the title" width="540" height="1125"></div><figcaption>Speak the title</figcaption></figure><figure><div class="phone"><img loading="lazy" src="assets/shots/en-light-history-remove.png" data-light="assets/shots/en-light-history-remove.png" data-dark="assets/shots/en-dark-history-remove.png" alt="Remove history" width="540" height="1125"></div><figcaption>Remove history</figcaption></figure><figure><div class="phone"><img loading="lazy" src="assets/shots/en-light-medicine-delete.png" data-light="assets/shots/en-light-medicine-delete.png" data-dark="assets/shots/en-dark-medicine-delete.png" alt="Delete a medicine" width="540" height="1125"></div><figcaption>Delete a medicine</figcaption></figure></div>
       </div>
     </section>
@@ -71,6 +68,7 @@
     <section class="block" id="first-launch">
       <div class="container">
         <div class="section-head"><h2>A guided first launch</h2><p>Dawa2 shows how the alarm works and what stays private, then turns on each permission in one tap. If something stays off, it says so, and you can still continue.</p></div>
+        <div class="gallery-bar"><div class="seg" role="group"><button type="button" data-theme="light" aria-pressed="true">Light</button><button type="button" data-theme="dark" aria-pressed="false">Dark</button></div></div>
         <div class="gallery"><figure><div class="phone"><img loading="lazy" src="assets/shots/en-light-onboarding-1-welcome.png" data-light="assets/shots/en-light-onboarding-1-welcome.png" data-dark="assets/shots/en-dark-onboarding-1-welcome.png" alt="Welcome" width="540" height="1125"></div><figcaption>Welcome</figcaption></figure><figure><div class="phone"><img loading="lazy" src="assets/shots/en-light-onboarding-2-alarm.png" data-light="assets/shots/en-light-onboarding-2-alarm.png" data-dark="assets/shots/en-dark-onboarding-2-alarm.png" alt="The alarm" width="540" height="1125"></div><figcaption>The alarm</figcaption></figure><figure><div class="phone"><img loading="lazy" src="assets/shots/en-light-onboarding-3-together.png" data-light="assets/shots/en-light-onboarding-3-together.png" data-dark="assets/shots/en-dark-onboarding-3-together.png" alt="Together + history" width="540" height="1125"></div><figcaption>Together + history</figcaption></figure><figure><div class="phone"><img loading="lazy" src="assets/shots/en-light-onboarding-4-privacy.png" data-light="assets/shots/en-light-onboarding-4-privacy.png" data-dark="assets/shots/en-dark-onboarding-4-privacy.png" alt="Privacy" width="540" height="1125"></div><figcaption>Privacy</figcaption></figure><figure><div class="phone"><img loading="lazy" src="assets/shots/en-light-onboarding-5-permissions.png" data-light="assets/shots/en-light-onboarding-5-permissions.png" data-dark="assets/shots/en-dark-onboarding-5-permissions.png" alt="Permissions" width="540" height="1125"></div><figcaption>Permissions</figcaption></figure><figure><div class="phone"><img loading="lazy" src="assets/shots/en-light-onboarding-6-ready.png" data-light="assets/shots/en-light-onboarding-6-ready.png" data-dark="assets/shots/en-dark-onboarding-6-ready.png" alt="Ready" width="540" height="1125"></div><figcaption>Ready</figcaption></figure></div>
       </div>
     </section>
@@ -148,12 +146,15 @@
   </script>
 
   <script>
-    // Screenshot theme switch; it follows the page theme and can be changed on its own.
-    const showShots = (theme) => {
-      document.querySelectorAll('.seg button').forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.theme === theme)));
-      document.querySelectorAll('.gallery img').forEach((img) => (img.src = img.dataset[theme]));
+    // Screenshot theme switches (A closer look, A guided first launch): each changes its own section;
+    // all of them follow the page theme.
+    const showShots = (theme, scope = document) => {
+      scope.querySelectorAll('.seg button').forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.theme === theme)));
+      scope.querySelectorAll('.gallery img').forEach((img) => (img.src = img.dataset[theme]));
     };
-    document.querySelectorAll('.seg button').forEach((b) => b.addEventListener('click', () => showShots(b.dataset.theme)));
+    document.querySelectorAll('.seg button').forEach((b) =>
+      b.addEventListener('click', () => showShots(b.dataset.theme, b.closest('section'))),
+    );
     if (isDark()) showShots('dark');
     document.addEventListener('themechange', (e) => showShots(e.detail));
     // Gentle motion: sections rise into view and the hero phones lean toward the pointer. Off for reduced motion.
